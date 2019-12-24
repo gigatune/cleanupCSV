@@ -23,6 +23,14 @@ $ ln -s /path/to/repo/dist /path/to/public_html/cleanup
 ```
 を実行する。
 
+bulma.js を使ったスタイリッシュなページを使いたければ、richUIブランチに切り替える
+
+```
+$ cd /path/to/repo
+$ git fetch
+$ git checkout -b richUI origin/richUI
+```
+
 
 #### 動作確認
 
