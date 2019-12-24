@@ -1,0 +1,11 @@
+{
+    "require-dev": {
+        "spatie/phpunit-watcher": "^1.10",
+        "phpunit/phpunit": "^7.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "CSVUtils\\": "src/"
+        }
+    }
+}

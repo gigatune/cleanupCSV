@@ -1,0 +1,11 @@
+directories:
+  - src
+  - tests
+fileMask: '*.php'
+notifications:
+  passingTests: true
+  failingTests: true
+phpunit:
+  binaryPath: './vendor/bin/phpunit'
+  arguments: '--stop-on-failure'
+hideManual: true
