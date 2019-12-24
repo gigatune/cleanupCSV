@@ -9,10 +9,11 @@
 
 ### public_html/ 以外にgitレポジトリをクローンできる、かつ、シンボリックリンクを張れるサーバー(推奨)
 
-
-公開するサーバー : http://localhost/cleanup/
-相当するディレクトリ : /public_html/cleanup
-gitレポジトリをクローンするpath : /path/to/repo
+| 設定項目 | 例 |
+|--|--|
+| 公開するサーバー |  http://localhost/cleanup/ |
+| 相当するディレクトリ | /public_html/cleanup |
+| gitレポジトリをクローンするpath | /path/to/repo |
 
 の場合、
 
@@ -22,7 +23,13 @@ $ ln -s /path/to/repo/dist /path/to/public_html/cleanup
 ```
 を実行する。
 
-http://localhost/cleanup/ にアクセスし、tests/data 以下の適当なファイルを選択し、[送信する]ボタンを押し、cleanupされたCSVをダウンロードできることを確認する。
+
+#### 動作確認
+
+1. http://localhost/cleanup/ にアクセス
+2. [ファイル選択]ボタンを押し、レポジトリの中のtests/data 以下の適当なファイルを選択
+3. [送信する]ボタンをクリック
+4. cleanupされたCSVをダウンロードできる
 
 
 
