@@ -15,18 +15,18 @@ if( isset( $_FILES['orgfile'] ) ){
     $err_message = 'ファイルのアップロードに失敗しました';
 
   }else{
-      $uploaded = $file['tmp_name'];
+    $uploaded = $file['tmp_name'];
 
-      try{
-          header("Content-Type: application/octet-stream");
-          header("Content-Disposition: attachment; filename=converted.csv");
+    try{
+      header("Content-Type: application/octet-stream");
+      header("Content-Disposition: attachment; filename=converted.csv");
 
-          $stream = fopen('php://output', 'w');
-          \CSVUtils\Util::cleanupFile( $uploaded, $stream );
-          return;
-      }catch( Exception $e ){
-          $err_message = $e->getMessage();
-      }
+      $stream = fopen('php://output', 'w');
+      \CSVUtils\Util::cleanupFile( $uploaded, $stream );
+      return;
+    }catch( Exception $e ){
+      $err_message = $e->getMessage();
+    }
   }
 }
 
@@ -46,12 +46,39 @@ if( isset( $_FILES['orgfile'] ) ){
       <?= $err_message ?>
     </div>
 
+    <div class="mainform">
+      <form action='./index.php' method='POST' enctype='multipart/form-data'>
+        <input type='file' name='orgfile' />
+        <br>
+        <input type='submit' name='submit' value='送信する' />
+      </form>
+    </div>
 
-    <form action='./index.php' method='POST' enctype='multipart/form-data'>
-      <input type='file' name='orgfile' />
-      <br>
-      <input type='submit' name='submit' value='送信する' />
-    </form>
+
+    <div>
+      リッチテキストのデータをフィールドに持つCSVファイルを、プレーンテキストのCSVファイルに変換します。
+    </div>
+
+    <div>
+      変換元のファイルのサポートする文字コードは
+      <ul>
+        <li>UTF-16LE</li>
+        <li>UTF-8</li>
+      </ul>
+    </div>
+
+    <div>
+      変換元のファイルのCSVの区切り文字は、
+      <ul>
+        <li>カンマ</li>
+        <li>タブ</li>
+      </ul>
+      を自動判別します。
+    </div>
+
+    <div>
+      出力ファイルは、文字コードはBOM付きUTF-8、カンマ区切りのCSVファイルです。
+    </div>
 
   </body>
 </html>
