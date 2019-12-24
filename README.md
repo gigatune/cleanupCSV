@@ -52,6 +52,7 @@ index.phpを以下のように修正する。
 ```
 # 必要なパッケージのインストール
 $ composer.phar install
+$ yarn install
 
 # PHP-unit
 $ ./vendor/bin/phpunit-watcher watch
