@@ -76,4 +76,13 @@ class Util{
 
         return $out;
     }
+
+    public static function nkfIsAvailable(){
+
+        exec("nkf -v", $out, $ret );
+        if( $ret == 127 ){
+            return false;
+        }
+        return true;
+    }
 }

@@ -1,6 +1,11 @@
 <?php
+require( '../src/Util.php');
 
 $err_message = '';
+
+if( \CSVUtils\Util::nkfIsAvailable() == false ){
+  $err_message = "nkfがインストールされていません";
+}
 
 if( isset( $_FILES['orgfile'] ) ){
 
@@ -11,8 +16,6 @@ if( isset( $_FILES['orgfile'] ) ){
 
   }else{
       $uploaded = $file['tmp_name'];
-
-      require( '../src/Util.php');
 
       try{
           header("Content-Type: application/octet-stream");
