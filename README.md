@@ -23,8 +23,6 @@ $ ln -s /path/to/repo/dist /path/to/public_html/cleanup
 ```
 を実行する。
 
-bulma.js を使ったスタイリッシュなページを使いたければ、richUIブランチに切り替える
-
 ```
 $ cd /path/to/repo
 $ git fetch
@@ -39,6 +37,7 @@ $ git checkout -b richUI origin/richUI
 3. [送信する]ボタンをクリック
 4. cleanupされたCSVをダウンロードできる
 
+※ bulma.js を使ったスタイリッシュなページを使いたければ、http://localhost/cleanup/nichui.php にアクセスする。もしくは、richui.php のファイル名を適宜変更する。
 
 
 ### public_html/ 以下にしかアクセス権がない場合
