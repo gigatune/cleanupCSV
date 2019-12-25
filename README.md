@@ -37,7 +37,7 @@ $ git checkout -b richUI origin/richUI
 3. [送信する]ボタンをクリック
 4. cleanupされたCSVをダウンロードできる
 
-※ bulma.js を使ったスタイリッシュなページを使いたければ、http://localhost/cleanup/nichui.php にアクセスする。もしくは、richui.php のファイル名を適宜変更する。
+※ bulma.js を使ったスタイリッシュなページを使いたければ、http://localhost/cleanup/richui.php にアクセスする。もしくは、richui.php のファイル名を適宜変更する。
 
 
 ### public_html/ 以下にしかアクセス権がない場合
