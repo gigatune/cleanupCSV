@@ -76,6 +76,24 @@ if( isset( $_FILES['orgfile'] ) ){
                      出力ファイルは、文字コードはBOM付きUTF-8、改行コードはLF(Linuxサーバー上で実行した場合)、カンマ区切りのCSVファイルです。
                 </div>
 
+                <div class="content">
+                  以下のタグは強制的に改行コードに変換されます(擬似的なブロック表記)
+                  <ul STYLE="margin-top:0em;">
+                    <li>&lt;br&gt;</li>
+                    <li>&lt;/p&gt;</li>
+                    <li>&lt;/h1&gt;</li>
+                    <li>&lt;/h2&gt;</li>
+                    <li>&lt;/h3&gt;</li>
+                    <li>&lt;/h4&gt;</li>
+                    <li>&lt;/h5&gt;</li>
+                    <li>&lt;/h6&gt;</li>
+                    <li>&lt;/center&gt;</li>
+                    <li>&lt;/div&gt;</li>
+                    <li>&lt;/li&gt;</li>
+                  </ul>
+                </div>
+
+
               </div>
             </div>
           </div>
