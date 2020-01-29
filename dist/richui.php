@@ -72,8 +72,13 @@ if( isset( $_FILES['orgfile'] ) ){
                   </ul>
                 </div>
 
-                <div>
-                     出力ファイルは、文字コードはBOM付きUTF-8、改行コードはLF(Linuxサーバー上で実行した場合)、カンマ区切りのCSVファイルです。
+                <div class="content">
+                  出力ファイルは、以下の形式のCSVファイルです。
+                  <ul STYLE="margin-top:0em;">
+                    <li> 文字コードはBOM付きUTF-8 </li>
+                    <li> 改行コードはLF(Linuxサーバー上で実行した場合)</li>
+                    <li> カンマ区切り</li>
+                  </ul>
                 </div>
 
                 <div class="content">
