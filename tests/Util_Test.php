@@ -65,16 +65,6 @@ class UtilTest extends TestCase
         $this->assertEquals( "UTF-16", Util::__getCharCode( $this->filePathForTest( $file ) ) );
     }
 
-    public function test_CSVを判定できる(){
-        $file = "bb9_answer_utf16le.csv";
-        $this->assertEquals( "CSV", Util::__getFileType( $this->filePathForTest( $file ) ) );
-    }
-
-    public function test_TSVを判定できる(){
-        $file = "bb9_answer.tsv";
-        $this->assertEquals( "TSV", Util::__getFileType( $this->filePathForTest( $file ) ) );
-    }
-
     public function test_UTF8の日本語を含むCSVファイルをcleanupできる(){
 
         $file = "bb9_answer_utf8.csv";
@@ -93,24 +83,6 @@ class UtilTest extends TestCase
     public function test_UTF16の日本語を含むCSVファイルをcleanupできる(){
 
         $file = "bb9_answer_utf16le.csv";
-        $expected_file = "bb9_answer_stripped.csv";  //BOM付きUTF-8
-
-        $this->assertEquals( "UTF-16", Util::__getCharCode( $this->filePathForTest( $file ) ) );
-
-        $expected = file_get_contents( $this->filePathForTest( $expected_file ) );
-
-        $stream = fopen('php://output', 'w');
-        ob_start();
-        Util::cleanupFile( $this->filePathForTest( $file ), $stream );
-        $stdout_buf = ob_get_clean();
-
-        $this->assertEquals( $expected , $stdout_buf );
-
-    }
-
-    public function test_UTF16の日本語を含むTSVファイルをcleanupできる(){
-
-        $file = "bb9_answer.tsv";
         $expected_file = "bb9_answer_stripped.csv";  //BOM付きUTF-8
 
         $this->assertEquals( "UTF-16", Util::__getCharCode( $this->filePathForTest( $file ) ) );

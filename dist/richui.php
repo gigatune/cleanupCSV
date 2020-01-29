@@ -61,7 +61,7 @@ if( isset( $_FILES['orgfile'] ) ){
 
               <div class="card-content">
                 <div>
-                  リッチテキストのデータをフィールドに持つCSVファイルを、プレーンテキストのCSVファイルに変換します。
+                     リッチテキストのデータをフィールドに持つカンマ区切りのCSVファイルを、プレーンテキストのCSVファイルに変換します。
                 </div>
 
                 <div class="content" STYLE="margin-bottom: 0rem;">
@@ -70,15 +70,6 @@ if( isset( $_FILES['orgfile'] ) ){
                     <li> UTF-16LE</li>
                     <li> UTF-8</li>
                   </ul>
-                </div>
-
-                <div class="content">
-                  CSVの区切り文字は、
-                  <ul STYLE="margin-top:0em;">
-                    <li> カンマ</li>
-                    <li> タブ</li>
-                  </ul>
-                  をサポートします。
                 </div>
 
                 <div>

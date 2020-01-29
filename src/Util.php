@@ -10,13 +10,7 @@ class Util{
 
         $utf8file = static::__convertToUTF8( $filename );
 
-        $filetype = static::__getFileType( $utf8file );
-
         $file = new SplFileObject( $utf8file );
-
-        if( $filetype == "TSV" ){
-            $file->setCsvControl("\t");
-        }
 
         $file->setFlags( SplFileObject::READ_CSV );
 
@@ -53,18 +47,6 @@ class Util{
 
     public static function __getCharCode( $filename = null ){
         return exec("nkf -g " . $filename );
-    }
-
-    public static function __getFileType( $filename = null ){
-        $fp = fopen($filename, 'r');
-        $head = fgets($fp);
-        fclose( $fp );
-
-        $count = mb_substr_count( $head, "\t");
-        if( $count > 10 ){
-            return "TSV";
-        }
-        return "CSV";
     }
 
     public static function __stripTagForArray( $ar ){
