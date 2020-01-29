@@ -42,7 +42,17 @@ class Util{
     }
 
     public static function __richTextToPlain( $str ){
-        return html_entity_decode( strip_tags( str_replace( ["<br>", "</p>", "</h1>", "</h2>", "</h3>", "</h4>", "</h5>", "</h6>", "</center>", "</div>", "</li>"], "\n", $str ) ) );
+        return html_entity_decode(
+            strip_tags(
+                str_replace( ["<br>", "</p>", "</h1>", "</h2>", "</h3>", "</h4>", "</h5>", "</h6>", "</center>", "</div>", "</li>"],
+                             "\n",
+                             str_replace( '</p>,<p>',
+                                          ',',
+                                          $str
+                             )
+                )
+            )
+        );
     }
 
     public static function __getCharCode( $filename = null ){

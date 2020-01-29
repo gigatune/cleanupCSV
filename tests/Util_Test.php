@@ -31,6 +31,10 @@ class UtilTest extends TestCase
         $this->assertEquals( "a\nka", Util::__richTextToPlain( "a</p>ka" ) );
     }
 
+    public function test_複数回答時のカンマ区切りのpタグが除去される(){
+        $this->assertEquals( "a,b", Util::__richTextToPlain( "a</p>,<p>b" ) );
+    }
+
     public function test_タグ除去時にh1タグで改行される(){
         $this->assertEquals( "hoge\nfoo", Util::__richTextToPlain( "<h1>hoge</h1><span>foo</span>" ) );
     }
@@ -46,6 +50,15 @@ class UtilTest extends TestCase
 
         $this->assertEquals( $expected, Util::__stripTagForArray( $ar ));
     }
+
+    public function test_配列データからタグを除去できる_複数選択回答あり(){
+        $ar = ["味噌ラーメン</p>,<p>醤油ラーメン", "塩ラーメン" ];
+
+        $expected = ['味噌ラーメン,醤油ラーメン',"塩ラーメン"];
+
+        $this->assertEquals( $expected, Util::__stripTagForArray( $ar ));
+    }
+
 
     public function test_配列データからタグを除去できる_タグ無し(){
         $ar = ['ユーザ名', '質問 x' ];
@@ -97,5 +110,24 @@ class UtilTest extends TestCase
         $this->assertEquals( $expected , $stdout_buf );
 
     }
+
+    public function test_複数選択回答時のCSVファイルをcleanupできる(){
+
+        $file = "bb9_multianswer.csv";
+        $expected_file = "bb9_multianswer_stripped.csv"; 
+
+        $this->assertEquals( "UTF-16", Util::__getCharCode( $this->filePathForTest( $file ) ) );
+
+        $expected = file_get_contents( $this->filePathForTest( $expected_file ) );
+
+        $stream = fopen('php://output', 'w');
+        ob_start();
+        Util::cleanupFile( $this->filePathForTest( $file ), $stream );
+        $stdout_buf = ob_get_clean();
+
+        $this->assertEquals( $expected , $stdout_buf );
+
+    }
+
 
 }
